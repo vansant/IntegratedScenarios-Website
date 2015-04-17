@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+   <Document>
+      <name>vic_boundaries</name>
+      <Placemark>
+         <Snippet maxLines="0"> </Snippet>
+         <description> </description>
+         <name>Line 1</name>
+         <Style>
+            <IconStyle>
+               <color>ffff0000</color>
+            </IconStyle>
+            <LineStyle>
+               <color>ffff0000</color>
+               <width>1</width>
+            </LineStyle>
+         </Style>
+         <LineString>
+            <coordinates> -124.59375,29.03125,0 -124.59375,52.84375,0 -103.03125,52.84375,0 -103.03125,29.03125,0 -124.59375,29.03125,0</coordinates>
+         </LineString>
+      </Placemark>
+   </Document>
+</kml>

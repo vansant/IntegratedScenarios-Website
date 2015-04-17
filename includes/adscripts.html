@@ -1,0 +1,132 @@
+	<!------------------------------------>
+        <!-- Script for loading             -->
+        <!------------------------------------>
+        <script type="text/javascript">
+                $(document).ready(function(){
+
+	        //Hide feature for Analysis Tools...GCM Projections
+                              jQuery('.scenn').on('change','input[type=radio]', function(){
+                             //});
+                                    if(jQuery(this).hasClass('cmip3')){
+                                        console.log("cmip3");
+                                         jQuery('.notcmip3').hide();
+                                         //jQuery('.notcmip3').val(0);
+                                     }
+                                    else if(jQuery(this).hasClass('cmip5')){
+                                                console.log("cmip5");
+                                                if(jQuery('input[name=spatt]:checked').val()=='GREATBASIN'){
+                                                        console.log("cmip5 and GREAT BASIN");
+                                                        jQuery('.notcmip3').hide();
+                                                }
+                                                else {
+                                                jQuery('.notcmip3').show();
+                                                console.log("cmip5 but NOT GREAT BASIN");
+                                              }
+                                }
+                             });
+
+                                //Hide feature for Analysis Tools...GCM Projections
+                              jQuery('.spatt').on('change','input[type=radio]', function(){
+                                    if(jQuery('input[name=spatt]:checked').val()=='GREATBASIN'){
+                                         jQuery('.cmip3').hide();
+                                         jQuery('.notcmip3').hide();
+                                         //jQuery('.notcmip3').val(0);
+                                     }
+                                     else {
+                                        jQuery('.cmip3').show();
+                                        jQuery('.notcmip3').show();
+                                     }
+                             });
+
+  //Hide feature for Get the Data... Download Tools
+                              jQuery('#freqq2').on('change','input[type=radio]', function(){
+                                    var freqq_val;
+                                    if(jQuery('#daily2').is(':checked')){
+                                        freqq_val=$('#daily2').val();
+                                    }
+                                   else if(jQuery('#monthly2').is(':checked')){
+                                        freqq_val=$('#monthly2').val();
+                                    }
+
+                                    if(freqq_val=="_monthly"){
+                                        console.log("changed to monthly");
+                                         jQuery('.notmonthly').hide();
+                                         jQuery('.notdaily').show();
+
+                                    }
+                                    else{
+                                        console.log("changed to daily");
+                                        jQuery('.notdaily').hide();
+                                         jQuery('.notmonthly').show();
+
+                                    }
+                                   // if($('input[id=daily]:checked').val()==""){
+                                   //   console.log("changed to daily");
+                        //              jQuery('.notdaily').hide();
+                        //               jQuery('.notmonthly').show();
+//
+//                                   }
+//                                  if($('input[id=monthly]:checked').val()=="_monthly"){
+//                                      console.log("changed to monthly");
+//                                       jQuery('.notmonthly').hide();
+//                                       jQuery('.notdaily').show();
+//                                   }
+                             });
+
+ //Hide feature for the ANalysis Tools... Bias Maps
+                          jQuery('.productt').on('change','input[type=radio]', function(){
+                                    if($('input[id=MACA-LIVNEH]:checked').val()=="MACA-LIVNEH"){
+                                        console.log("changed to MACA-LIVNEH");
+                                        jQuery('.notLIVNEH').hide();
+                                         jQuery('.notMETDATA').show();
+
+                                     }
+                                    if($('input[id=MACAv2-METDATA]:checked').val()=="MACAv2-METDATA"){
+                                        console.log("changed to MACAv2-METDATA");
+                                         jQuery('.notMETDATA').hide();
+                                         jQuery('.notLIVNEH').show();
+                                     }
+                             });
+
+                        // Listen for click on toggle checkbox
+                       // jQuery('#select-all').click(function(event) {
+                        //      if(this.checked) {
+                        //           // Iterate each checkbox
+                         //          $(':checkbox').each(function() {
+                         //              this.checked = true;
+                          //         });
+                        //      }
+                      // });
+
+
+
+			 jQuery('#dataportal').on('click','.table', function(){
+                               // jQuery(this).next().slideToggle()
+
+                                jQuery('.selectall').on('click',select_all);
+                                jQuery('.deselectall').on('click',deselect_all);
+                        }
+                        )
+
+                });//document.ready
+		  function unclick_hidden(evt){
+                        var selector = jQuery(this).data('name')+'[]';
+                        $('input[name="' + selector + '"]').filter(':hidden').prop('checked',false);
+                        return false;
+                }
+		  function select_all(evt){
+                        var selector = jQuery(this).data('name')+'[]';
+                        //$('input[name="' + selector + '"]'.prop('checked',true);
+                        $('input[name="' + selector + '"]').filter(':visible').prop('checked',true);
+                        $('input[name="' + selector + '"]').filter(':hidden').prop('checked',false);
+                        return false;
+                }
+                function deselect_all(evt){
+                        var selector = jQuery(this).data('name')+'[]';
+                        $('input[name="' + selector + '"]').prop('checked',false);
+                        return false;
+                }
+        </script>
+
+
+

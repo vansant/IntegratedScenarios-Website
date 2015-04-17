@@ -1,0 +1,66 @@
+$(function(){
+   jQuery('#productt').on('change','input[type=radio]', function(){
+	    var product;
+	    product=$('#productt').val();
+	    if(product=="macav2livneh"){
+		console.log("changed to macav2livneh");
+		 jQuery('.macav1metdata').hide();
+		 jQuery('.macav2livneh').show();
+	    }
+	    else if(product=="macav1metdata"){
+		console.log("changed to macav1metdata");
+		 jQuery('.macav1metdata').show();
+		 jQuery('.macav2livneh').hide();
+
+	    }
+   });
+   jQuery('#freqq2').on('change','input[type=radio]', function(){
+	    var freqq_val;
+	    if(jQuery('#daily2').is(':checked')){
+		freqq_val=$('#daily2').val();
+	    }
+	   else if(jQuery('#monthly2').is(':checked')){
+		freqq_val=$('#monthly2').val();
+	    }
+
+	    if(freqq_val=="_monthly"){
+		console.log("changed to monthly");
+		 jQuery('.notmonthly').hide();
+		 jQuery('.notdaily').show();
+
+	    }
+	    else{
+		console.log("changed to daily");
+		jQuery('.notdaily').hide();
+		 jQuery('.notmonthly').show();
+
+	    }
+                                   // if($('input[id=daily]:checked').val()==""){
+                                   //   console.log("changed to daily");
+                        //              jQuery('.notdaily').hide();
+                        //               jQuery('.notmonthly').show();
+//
+//                                   }
+//                                  if($('input[id=monthly]:checked').val()=="_monthly"){
+//                                      console.log("changed to monthly");
+//                                       jQuery('.notmonthly').hide();
+//                                       jQuery('.notdaily').show();
+//                                   }
+         });
+
+
+	  //Hide feature for the ANalysis Tools... Bias Maps
+	  jQuery('.productt').on('change','input[type=radio]', function(){
+		    if($('input[id=MACA-LIVNEH]:checked').val()=="MACA-LIVNEH"){
+			console.log("changed to MACA-LIVNEH");
+			jQuery('.notLIVNEH').hide();
+			 jQuery('.notMETDATA').show();
+
+		     }
+		    if($('input[id=MACAv2-METDATA]:checked').val()=="MACAv2-METDATA"){
+			console.log("changed to MACAv2-METDATA");
+			 jQuery('.notMETDATA').hide();
+			 jQuery('.notLIVNEH').show();
+		     }
+	     });
+});
